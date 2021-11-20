@@ -3,5 +3,63 @@ body {
     color: white;
     margin: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+h1 small {
+    font-size: 18px;
+    display: block;
+    margin-left: 10px;
+}
+
+a.main-query {
+    background-color: rgb(0, 139, 139);
+    font-size: 30px;
+    border-radius: 8px;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    display: flow-root;
+}
+
+    a.main-query:hover {
+        background-color: rgb(0, 139, 150);
+    }
+
+a.sub-query {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+    a.sub-query:hover {
+        font-weight: bold;
+    }
+
+ul.sub-query {
+    list-style-type: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    padding: 20px 16px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+input.query-input {
+    font-family: inherit;
+    font-size: inherit;
+    color:white;
+    min-height: 40px;
+    background-color: inherit;
+    border-color: white;
+    border-radius: 5px;
+    text-align: right;
 }
