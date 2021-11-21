@@ -12,6 +12,11 @@ h1 small {
     margin-left: 10px;
 }
 
+h4 small.no-margin {
+    font-size: 15px;
+    display: block;
+}
+
 a.main-query {
     background-color: inherit;
     border: solid 1px white;
