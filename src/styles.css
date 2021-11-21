@@ -17,7 +17,7 @@ h4 small.no-margin {
     display: block;
 }
 
-a.main-query {
+.main-query {
     background-color: inherit;
     border: solid 1px white;
     border-radius: 8px;
@@ -25,16 +25,18 @@ a.main-query {
     padding: 15px;
     text-decoration: none;
     color: white;
+    font-family: inherit;
 }
 
-    a.main-query:hover {
+    .main-query:hover {
         background-color: rgb(0, 139, 150);
     }
 
-a.sub-query {
+.sub-query {
     color: white;
     font-size: 30px;
     text-decoration: none;
+    font-family: inherit;
 }
     a.sub-query:hover {
         font-weight: bold;
@@ -63,6 +65,7 @@ input.query-input {
     font-size: inherit;
     color:white;
     min-height: 40px;
+    max-width: 350px;
     background-color: inherit;
     border-color: white;
     border-radius: 5px;
