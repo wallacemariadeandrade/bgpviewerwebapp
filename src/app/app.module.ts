@@ -8,6 +8,8 @@ import { IpQueryComponent } from './ip-query/ip-query.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AvailableApisComponent } from './available-apis/available-apis.component';
+import { ApiSelectionComponent } from './api-selection/api-selection.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AvailableApisComponent } from './available-apis/available-apis.componen
     IpQueryComponent,
     SearchComponent,
     AvailableApisComponent,
+    ApiSelectionComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
