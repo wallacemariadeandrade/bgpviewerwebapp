@@ -6,6 +6,7 @@ import { AsDataQueryComponent } from './as-data-query/as-data-query.component';
 import { PrefixQueryComponent } from './prefix-query/prefix-query.component';
 import { IpQueryComponent } from './ip-query/ip-query.component';
 import { SearchComponent } from './search/search.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { SearchComponent } from './search/search.component';
     AsDataQueryComponent,
     PrefixQueryComponent,
     IpQueryComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
