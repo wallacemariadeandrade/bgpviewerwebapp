@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AvailableApisComponent } from './available-apis/available-apis.component';
 import { ApiSelectionComponent } from './api-selection/api-selection.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AsDetailsComponent } from './as-details/as-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AvailableApisComponent,
     ApiSelectionComponent,
     DashboardComponent,
+    AsDetailsComponent,
   ],
   imports: [
     BrowserModule,
