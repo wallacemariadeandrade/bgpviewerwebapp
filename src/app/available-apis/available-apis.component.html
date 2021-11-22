@@ -8,21 +8,12 @@
                     <label for="markAll">Mark All</label>
                 </h4>
             </li>
-            <li>
+            <li *ngFor="let api of availableApis$ | async">
                 <h4>
-                    <input id="1" type="checkbox"/>    
-                    <label for="1">
-                        BGP View
-                        <small class="no-margin">BGPView is a simple API allowing consumers to view all sort of analytics data about the current state and structure of the internet. Available at https://bgpview.docs.apiary.io/#</small>
-                    </label>
-                </h4>
-            </li>
-            <li>
-                <h4>
-                    <input id="2" type="checkbox"/>    
-                    <label for="2">
-                        BGP View
-                        <small class="no-margin">BGPView is a simple API allowing consumers to view all sort of analytics data about the current state and structure of the internet. Available at https://bgpview.docs.apiary.io/#</small>
+                    <input id="{{ api.id }}" type="checkbox"/>    
+                    <label for="{{ api.id }}">
+                        {{ api.name }}
+                        <small class="no-margin">{{ api.description }}</small>
                     </label>
                 </h4>
             </li>
