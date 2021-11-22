@@ -1,28 +1,31 @@
-<p>Autonomous System 3356</p>
+<p>Autonomous System {{ details.asn }}</p>
 <p>
     Name: <br>
-    <small>LEVEL3</small>
+    <small>{{ details.name }}</small>
 </p>
 <p>
     Description:<br>
-    <small>Level 3 Parent, LLC</small>
+    <small>{{ details.description }}</small>
 </p>
 <p>
     Country:<br>
-    <small>US</small>
+    <small>{{ details.countryCode }}</small>
 </p>
 <p>
     Contacts:<br>
-    <small>
-        abuse@aup.lumen.com<br/>
-        ipaddressing@level3.com<br/>
-        abuse@level3.com
+    <small *ngFor="let email of details.emailContacts">
+        {{ email }}<br/>
     </small>
 </p>
 <p>
     Abuse:<br>
+    <small *ngFor="let abuse of details.abuseContacts">
+        {{ abuse }}<br/>
+    </small>
+</p>
+<p>
+    Looking Glass:<br/>
     <small>
-        abuse@aup.lumen.com<br/>
-        abuse@level3.com
+        <a href="{{ details.lookingGlassUrl }}" target="_blank">{{ details.lookingGlassUrl }}</a>
     </small>
 </p>
