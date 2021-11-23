@@ -1,2 +1,23 @@
-<app-available-apis></app-available-apis>
-<div><button class="go">GO</button></div>
+<div class="dropdown">
+    <button class="main-query">Available APIs</button>
+    <div>
+        <ul class="sub-query">
+            <li>
+                <h4>    
+                    <input id="markAll"type="checkbox">
+                    <label for="markAll">Mark All</label>
+                </h4>
+            </li>
+            <li *ngFor="let api of availableApis$ | async">
+                <h4>
+                    <input id="{{ api.id }}" type="checkbox"/>    
+                    <label for="{{ api.id }}">
+                        {{ api.name }}
+                        <small class="no-margin">{{ api.description }}</small>
+                    </label>
+                </h4>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="btn-go"><button class="btn-go">GO</button></div>

@@ -7,7 +7,6 @@ import { PrefixQueryComponent } from './prefix-query/prefix-query.component';
 import { IpQueryComponent } from './ip-query/ip-query.component';
 import { SearchComponent } from './search/search.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AvailableApisComponent } from './available-apis/available-apis.component';
 import { ApiSelectionComponent } from './api-selection/api-selection.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AsDetailsComponent } from './as-details/as-details.component';
@@ -19,7 +18,6 @@ import { AsDetailsComponent } from './as-details/as-details.component';
     PrefixQueryComponent,
     IpQueryComponent,
     SearchComponent,
-    AvailableApisComponent,
     ApiSelectionComponent,
     DashboardComponent,
     AsDetailsComponent,
