@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ApiSelectionComponent } from './api-selection/api-selection.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AsDetailsComponent } from './as-details/as-details.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AsDetailsComponent } from './as-details/as-details.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

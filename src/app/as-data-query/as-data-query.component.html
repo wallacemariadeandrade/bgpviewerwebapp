@@ -2,14 +2,38 @@
     <button class="main-query">AS Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
     <div class="dropdown-content">
         <label for="as">Which AS?&nbsp;</label>
-        <input id="as" class="query-input" type="text"/>
+        <input id="as" [(ngModel)]="asNumber" class="query-input" type="text"/>
         <ul class="sub-query">
-            <li><a routerLink="/apiSelection" class="sub-query">Details</a></li>
-            <li><a href="#" class="sub-query">Peers</a></li>
-            <li><a href="#" class="sub-query">Upstreams</a></li>
-            <li><a href="#" class="sub-query">Downstreams</a></li>
-            <li><a href="#" class="sub-query">IXs</a></li>
-            <li><a href="#" class="sub-query">Prefixes</a></li>
+            <li>
+                <button type="button" 
+                (click)="details()" 
+                class="btn-sub-query">Details</button>
+            </li>
+            <li>
+                <button type="button"
+                (click)="peers()"
+                class="btn-sub-query">Peers</button>
+            </li>
+            <li>
+                <button type="button"
+                (click)="upstreams()"
+                class="btn-sub-query">Upstreams</button>
+            </li>
+            <li>
+                <button type="button"
+                (click)="downstreams()"
+                class="btn-sub-query">Downstreams</button>
+            </li>
+            <li>
+                <button type="button"
+                (click)="ixs()"
+                class="btn-sub-query">Ixs</button>
+            </li>
+            <li>
+                <button type="button"
+                (click)="prefixes()"
+                class="btn-sub-query">Prefixes</button>
+            </li>
         </ul>
     </div>
 </div>

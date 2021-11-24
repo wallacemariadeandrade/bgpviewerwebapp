@@ -5,7 +5,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'apiSelection', component: ApiSelectionComponent },
+  { path: 'as/:as/details', component: ApiSelectionComponent },
+  { path: 'as/:as/peers', component: ApiSelectionComponent },
+  { path: 'as/:as/upstreams', component: ApiSelectionComponent },
+  { path: 'as/:as/downstreams', component: ApiSelectionComponent },
+  { path: 'as/:as/ixs', component: ApiSelectionComponent },
+  { path: 'as/:as/prefixes', component: ApiSelectionComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
