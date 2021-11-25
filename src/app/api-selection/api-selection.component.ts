@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
-import Api from '../model/api';
+import SelectedApi from '../model/selectedApi';
 
 @Component({
   selector: 'app-api-selection',
@@ -10,12 +9,31 @@ import Api from '../model/api';
 })
 export class ApiSelectionComponent implements OnInit {
 
-  availableApis$!: Observable<Api[]>;
+  selectedApis?: SelectedApi[];
+  checkAll: boolean;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService) {
+      this.selectedApis = [];
+      this.checkAll = false;
+   }
 
   ngOnInit(): void {
-    this.availableApis$ = this.apiService.getAvailableApis();
+    this.apiService.getAvailableApis().subscribe(x => x.forEach(
+      y => this.selectedApis?.push(
+        {
+          selected: false,
+          api: y
+        }
+      )
+    ));
   }
 
+  test():void {
+    let names = this.selectedApis?.filter(x => x.selected).map(x => x.api?.name);
+    alert(`selected apis were ${names?.join(",")}`);
+  }
+
+  checkAllApis(): void {
+    this.selectedApis?.forEach(api => api.selected = this.checkAll);
+  }
 }

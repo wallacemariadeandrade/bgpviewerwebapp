@@ -3,21 +3,23 @@
     <div>
         <ul class="sub-query">
             <li>
-                <h4>    
-                    <input id="markAll"type="checkbox">
-                    <label for="markAll">Mark All</label>
-                </h4>
+                <label class="label-container">
+                    <input id="checkAll" [(ngModel)]="checkAll" 
+                        [checked]="checkAllApis()" type="checkbox" >
+                    <span class="checkmark"></span>
+                    Check all
+                </label>
             </li>
-            <li *ngFor="let api of availableApis$ | async">
-                <h4>
-                    <input id="{{ api.id }}" type="checkbox"/>    
-                    <label for="{{ api.id }}">
-                        {{ api.name }}
-                        <small class="no-margin">{{ api.description }}</small>
-                    </label>
-                </h4>
+            <li *ngFor="let apiMap of selectedApis">
+                <label class="label-container">
+                    <input id="{{ apiMap.api?.id }}" [(ngModel)]="apiMap.selected" 
+                        type="checkbox"/>    
+                    <span class="checkmark"></span>
+                    {{ apiMap.api?.name }}<br/>
+                    <small>{{ apiMap.api?.description }}</small>
+                </label>
             </li>
         </ul>
     </div>
 </div>
-<div class="btn-go"><button class="btn-go">GO</button></div>
+<div class="btn-go"><button (click)="test()" class="btn-go">GO</button></div>
