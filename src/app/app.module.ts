@@ -11,6 +11,7 @@ import { ApiSelectionComponent } from './api-selection/api-selection.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AsDetailsComponent } from './as-details/as-details.component';
 import { FormsModule } from "@angular/forms";
+import { ApiProviderService } from './api-provider.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from "@angular/forms";
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [],
+  // Register as a shared service! Singleton instance!
+  providers: [ApiProviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
