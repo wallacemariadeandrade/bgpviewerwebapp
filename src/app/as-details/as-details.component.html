@@ -1,31 +1,33 @@
-<p>Autonomous System {{ details.asn }}</p>
-<p>
-    Name: <br>
-    <small>{{ details.name }}</small>
-</p>
-<p>
-    Description:<br>
-    <small>{{ details.description }}</small>
-</p>
-<p>
-    Country:<br>
-    <small>{{ details.countryCode }}</small>
-</p>
-<p>
-    Contacts:<br>
-    <small *ngFor="let email of details.emailContacts">
-        {{ email }}<br/>
-    </small>
-</p>
-<p>
-    Abuse:<br>
-    <small *ngFor="let abuse of details.abuseContacts">
-        {{ abuse }}<br/>
-    </small>
-</p>
-<p>
-    Looking Glass:<br/>
-    <small>
-        <a href="{{ details.lookingGlassUrl }}" target="_blank">{{ details.lookingGlassUrl }}</a>
-    </small>
-</p>
+<div *ngIf="details">
+    <p>Autonomous System {{ details.asn }}</p>
+    <p>
+        Name: <br>
+        <small>{{ details.name }}</small>
+    </p>
+    <p>
+        Description:<br>
+        <small>{{ details.description }}</small>
+    </p>
+    <p>
+        Country:<br>
+        <small>{{ details.countryCode }}</small>
+    </p>
+    <p>
+        Contacts:<br>
+        <small *ngFor="let email of details.emailContacts">
+            {{ email }}<br/>
+        </small>
+    </p>
+    <p>
+        Abuse:<br>
+        <small *ngFor="let abuse of details.abuseContacts">
+            {{ abuse }}<br/>
+        </small>
+    </p>
+    <p>
+        Looking Glass:<br/>
+        <small>
+            <a href="{{ details.lookingGlassUrl }}" target="_blank">{{ details.lookingGlassUrl }}</a>
+        </small>
+    </p>
+</div>

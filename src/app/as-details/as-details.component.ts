@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import AsDetails from '../model/as-details';
 
 @Component({
@@ -8,26 +9,26 @@ import AsDetails from '../model/as-details';
 })
 export class AsDetailsComponent implements OnInit {
 
-  details: AsDetails = {
-    asn: 3356,
-    name: "LEVEL3",
-    description: "Level 3 Parent, LLC",
-    countryCode: "US",
-    emailContacts: [
-      "abuse@aup.lumen.com",
-      "ipaddressing@level3.com",
-      "abuse@level3.com"
-    ],
-    abuseContacts: [
-      "abuse@aup.lumen.com",
-      "abuse@level3.com"
-    ],
-    lookingGlassUrl: "https://lookingglass.centurylink.com/"
-  };
+  @Input() details?: AsDetails;
+
+  // details: AsDetails = {
+  //   asn: 3356,
+  //   name: "LEVEL3",
+  //   description: "Level 3 Parent, LLC",
+  //   countryCode: "US",
+  //   emailContacts: [
+  //     "abuse@aup.lumen.com",
+  //     "ipaddressing@level3.com",
+  //     "abuse@level3.com"
+  //   ],
+  //   abuseContacts: [
+  //     "abuse@aup.lumen.com",
+  //     "abuse@level3.com"
+  //   ],
+  //   lookingGlassUrl: "https://lookingglass.centurylink.com/"
+  // };
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }

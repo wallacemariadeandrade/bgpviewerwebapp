@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApiSelectionComponent } from './api-selection/api-selection.component';
-import { AsDetailsComponent } from './as-details/as-details.component';
+import { AsDetailsResultsComponent } from './as-details-results/as-details-results.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'as/:as/downstreams', component: ApiSelectionComponent },
   { path: 'as/:as/ixs', component: ApiSelectionComponent },
   { path: 'as/:as/prefixes', component: ApiSelectionComponent },
-  { path: ':as/details', component: AsDetailsComponent },
+  { path: ':as/details', component: AsDetailsResultsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

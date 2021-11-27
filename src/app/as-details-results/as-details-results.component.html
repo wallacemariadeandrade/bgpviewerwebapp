@@ -1,0 +1,5 @@
+<div *ngFor="let asDetails of asesDetails">
+    <h3>From {{ asDetails[0].api?.name }}</h3>
+    <app-as-details [details]="asDetails[1]"></app-as-details>
+    <div class="separator"></div>
+</div>

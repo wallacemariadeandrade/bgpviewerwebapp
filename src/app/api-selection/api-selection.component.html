@@ -4,15 +4,15 @@
         <ul class="sub-query">
             <li>
                 <label class="label-container">
-                    <input id="checkAll" [(ngModel)]="checkAll" 
-                        [checked]="checkAllApis()" type="checkbox" >
+                    <input id="checkAll" [(ngModel)]="checkAll"
+                        (change)="checkAllApis()" type="checkbox" >
                     <span class="checkmark"></span>
                     Check all
                 </label>
             </li>
-            <li *ngFor="let apiMap of selectedApis">
+            <li *ngFor="let apiMap of availableApis">
                 <label class="label-container">
-                    <input id="{{ apiMap.api?.id }}" [(ngModel)]="apiMap.selected" 
+                    <input id="{{ apiMap.api?.id }}" [(ngModel)]="apiMap.selected"
                         type="checkbox"/>    
                     <span class="checkmark"></span>
                     {{ apiMap.api?.name }}<br/>

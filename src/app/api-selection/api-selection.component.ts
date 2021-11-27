@@ -11,7 +11,7 @@ import SelectedApi from '../model/selectedApi';
 })
 export class ApiSelectionComponent implements OnInit {
 
-  selectedApis: SelectedApi[];
+  availableApis: SelectedApi[];
   checkAll: boolean;
 
   constructor(
@@ -19,13 +19,13 @@ export class ApiSelectionComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private apiProviderService: ApiProviderService,
     private router: Router) {
-      this.selectedApis = [];
+      this.availableApis = [];
       this.checkAll = false;
    }
 
   ngOnInit(): void {
     this.apiService.getAvailableApis().subscribe(x => x.forEach(
-      y => this.selectedApis?.push(
+      y => this.availableApis?.push(
         {
           selected: false,
           api: y
@@ -35,44 +35,36 @@ export class ApiSelectionComponent implements OnInit {
   }
 
   checkAllApis(): void {
-    this.selectedApis?.forEach(api => api.selected = this.checkAll);
+    this.availableApis?.forEach(api => api.selected = this.checkAll);
   }
 
   go():void {
-      // Discover url path
-      let url = this.activeRoute.snapshot.url.map(x => x.path).join("/"); 
+      
+    try {
+        this.apiProviderService.setApis(this.availableApis);
+        
+        // Discover url path
+        let url = this.activeRoute.snapshot.url.map(x => x.path).join("/"); 
 
-      if(url.includes('as')) {
-        
-        let as = this.activeRoute.snapshot.paramMap.get('as');
-        
-        if(url.includes('details')) {
-          // set selected apis into shared service
-          this.apiProviderService.appendApi(this.selectedApis)
-          // route to as details view
-          this.router.navigateByUrl(`${as}/details`);
-        } else if (url.includes('peers'))
-          alert('as details peers!');
-        else if (url.includes('upstreams'))
-          alert('as details upstreams!');
-        else if (url.includes('downstreams'))
-          alert('as details downstreams!');
-        else if (url.includes('ixs'))
-          alert('as details ixs!');
-        else if (url.includes('prefixes'))
-          alert('as details prefixes!');
-        
-      } else if (url.includes('prefix')) {
-        alert ('prefix query!');
-      } else if (url.includes('ip')) {
-        alert ('ip query!');
-      } else {
-        alert ('search query!')
-      }
-  }
-
-  test():void {
-    let names = this.selectedApis?.filter(x => x.selected).map(x => x.api?.name);
-    alert(`selected apis were ${names?.join(",")}`);
+        if(url.includes('as')) {
+          
+          let as = this.activeRoute.snapshot.paramMap.get('as');
+          
+          if(url.includes('details')) {
+            this.router.navigateByUrl(`${as}/details`);
+          } else if (url.includes('peers'))
+            alert('as details peers!');
+          else if (url.includes('upstreams'))
+            alert('as details upstreams!');
+          else if (url.includes('downstreams'))
+            alert('as details downstreams!');
+          else if (url.includes('ixs'))
+            alert('as details ixs!');
+          else if (url.includes('prefixes'))
+            alert('as details prefixes!');
+        }
+    } catch (error) {
+        alert(error);
+    }     
   }
 }

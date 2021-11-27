@@ -12,11 +12,13 @@ export class ApiProviderService {
     this.selectedApis = [];
   }
 
-  appendApi(apis:SelectedApi[]):void {
-    this.selectedApis = this.selectedApis.concat(apis);
+  setApis(apis:SelectedApi[]):void {
+    let selected = apis.filter(api => api.selected);
+    if(selected.length < 1) throw new Error('At least 1 api must be selected.');
+    this.selectedApis = apis.filter(api => api.selected);
   }
 
-  getApis(): SelectedApi[] {
+  getSelectedApis(): SelectedApi[] {
     return this.selectedApis;
   }
 }

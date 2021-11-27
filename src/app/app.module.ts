@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AsDetailsComponent } from './as-details/as-details.component';
 import { FormsModule } from "@angular/forms";
 import { ApiProviderService } from './api-provider.service';
+import { AsDetailsResultsComponent } from './as-details-results/as-details-results.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ApiProviderService } from './api-provider.service';
     ApiSelectionComponent,
     DashboardComponent,
     AsDetailsComponent,
+    AsDetailsResultsComponent,
   ],
   imports: [
     BrowserModule,
