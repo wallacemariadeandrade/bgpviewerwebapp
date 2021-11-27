@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ParamsService } from '../params.service';
 
 @Component({
   selector: 'app-as-data-query',
@@ -10,7 +11,9 @@ export class AsDataQueryComponent implements OnInit {
 
   @Input() asNumber!: Number;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private paramsService: ParamsService) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +30,9 @@ export class AsDataQueryComponent implements OnInit {
   }
 
   details():void {
-    this.navigateTo(`/as/${this.asNumber}/details`);
+    this.paramsService.setUrl(`/as-details`);
+    this.paramsService.setQueryParam(this.asNumber.toString());
+    this.navigateTo('/apiSelection');
   }
 
   peers():void {

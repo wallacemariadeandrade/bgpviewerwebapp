@@ -13,6 +13,7 @@ import { AsDetailsComponent } from './as-details/as-details.component';
 import { FormsModule } from "@angular/forms";
 import { ApiProviderService } from './api-provider.service';
 import { AsDetailsResultsComponent } from './as-details-results/as-details-results.component';
+import { ParamsService } from './params.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { AsDetailsResultsComponent } from './as-details-results/as-details-resul
     FormsModule,
   ],
   // Register as a shared service! Singleton instance!
-  providers: [ApiProviderService],
+  providers: [ApiProviderService, ParamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

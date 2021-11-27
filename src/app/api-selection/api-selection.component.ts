@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiProviderService } from '../api-provider.service';
 import { ApiService } from '../api.service';
 import SelectedApi from '../model/selectedApi';
+import { ParamsService } from '../params.service';
 
 @Component({
   selector: 'app-api-selection',
@@ -16,8 +17,8 @@ export class ApiSelectionComponent implements OnInit {
 
   constructor(
     private apiService:ApiService, 
-    private activeRoute: ActivatedRoute,
     private apiProviderService: ApiProviderService,
+    private paramsService: ParamsService,
     private router: Router) {
       this.availableApis = [];
       this.checkAll = false;
@@ -42,27 +43,7 @@ export class ApiSelectionComponent implements OnInit {
       
     try {
         this.apiProviderService.setApis(this.availableApis);
-        
-        // Discover url path
-        let url = this.activeRoute.snapshot.url.map(x => x.path).join("/"); 
-
-        if(url.includes('as')) {
-          
-          let as = this.activeRoute.snapshot.paramMap.get('as');
-          
-          if(url.includes('details')) {
-            this.router.navigateByUrl(`${as}/details`);
-          } else if (url.includes('peers'))
-            alert('as details peers!');
-          else if (url.includes('upstreams'))
-            alert('as details upstreams!');
-          else if (url.includes('downstreams'))
-            alert('as details downstreams!');
-          else if (url.includes('ixs'))
-            alert('as details ixs!');
-          else if (url.includes('prefixes'))
-            alert('as details prefixes!');
-        }
+        this.router.navigateByUrl(this.paramsService.getUrl());
     } catch (error) {
         alert(error);
     }     

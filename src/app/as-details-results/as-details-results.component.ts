@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ApiProviderService } from '../api-provider.service';
 import { AsService } from '../as.service';
 import AsDetails from '../model/as-details';
 import SelectedApi from '../model/selectedApi';
+import { ParamsService } from '../params.service';
 
 @Component({
   selector: 'app-as-details-results',
@@ -15,7 +15,7 @@ export class AsDetailsResultsComponent implements OnInit {
   asesDetails: [SelectedApi, AsDetails][];
 
   constructor(
-    private activeRoute: ActivatedRoute,
+    private paramsService: ParamsService,
     private apiProvider: ApiProviderService,
     private asService: AsService
     ) { 
@@ -27,7 +27,7 @@ export class AsDetailsResultsComponent implements OnInit {
   }
 
   execute(): void {
-    let asNumber = this.activeRoute.snapshot.paramMap.get('as');
+    let asNumber = Number(this.paramsService.getQueryParam());
     let apisToQuery = this.apiProvider.getSelectedApis();
     apisToQuery.forEach(api => {
       this.asService.getAsDetails(api.api?.id, Number(asNumber)).subscribe(
