@@ -1,22 +1,23 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ParamsService } from '../params.service';
+import { QueryComponent } from '../query-component';
 
 @Component({
   selector: 'app-as-data-query',
   templateUrl: './as-data-query.component.html',
   styleUrls: ['./as-data-query.component.css']
 })
-export class AsDataQueryComponent implements OnInit {
+export class AsDataQueryComponent extends QueryComponent implements OnInit {
 
   @Input() asNumber!: Number;
 
   constructor(
-    private router: Router,
-    private paramsService: ParamsService) { }
+    private paramsService: ParamsService, protected r:Router) {
+      super(r);
+    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   checkInput():boolean {
     return this.asNumber != null && this.asNumber != undefined && !isNaN(Number(this.asNumber));
@@ -24,13 +25,6 @@ export class AsDataQueryComponent implements OnInit {
 
   inputInvalid():string {
     return "Enter a valid as number please!";
-  }
-
-  navigateTo(url: string) {
-    if(this.checkInput()) 
-      this.router.navigateByUrl(url);
-    else
-      alert(this.inputInvalid());
   }
 
   goTo(url:string){ 
