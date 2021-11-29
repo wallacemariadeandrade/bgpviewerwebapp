@@ -18,40 +18,48 @@ export class AsDataQueryComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkAs():boolean {
+  checkInput():boolean {
     return this.asNumber != null && this.asNumber != undefined && !isNaN(Number(this.asNumber));
   }
 
-  navigateTo(url: string) {
-    if(this.checkAs()) 
-      this.router.navigateByUrl(url);
-    else
-      alert('Incorrect AS!');
+  inputInvalid():string {
+    return "Enter a valid as number please!";
   }
 
-  details():void {
-    this.paramsService.setUrl(`/as-details`);
+  navigateTo(url: string) {
+    if(this.checkInput()) 
+      this.router.navigateByUrl(url);
+    else
+      alert(this.inputInvalid());
+  }
+
+  goTo(url:string){ 
+    this.paramsService.setUrl(url);
     this.paramsService.setQueryParam(this.asNumber.toString());
     this.navigateTo('/apiSelection');
   }
 
+  details():void {
+    this.goTo(`/as-details`);
+  }
+
   peers():void {
-    this.navigateTo(`/as/${this.asNumber}/peers`);
+    this.goTo('as-peers');
   }
 
   upstreams():void {
-    this.navigateTo(`/as/${this.asNumber}/upstreams`);
+    this.goTo('as-upstreams');
   }
 
   downstreams():void {
-    this.navigateTo(`/as/${this.asNumber}/downstreams`);
+    this.goTo('as-downstreams');
   }
 
   ixs():void {
-    this.navigateTo(`/as/${this.asNumber}/ixs`);
+    this.goTo('as-ixs');
   }
 
   prefixes():void {
-    this.navigateTo(`/as/${this.asNumber}/prefixes`);
+    this.goTo('as-prefixes');
   }
 }
