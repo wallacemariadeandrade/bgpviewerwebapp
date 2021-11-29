@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiProviderService } from '../api-provider.service';
 import { AsService } from '../as.service';
-import AsDetails from '../model/as-details';
+import AsDetails from '../model/asDetails';
 import SelectedApi from '../model/selectedApi';
 import { ParamsService } from '../params.service';
 
