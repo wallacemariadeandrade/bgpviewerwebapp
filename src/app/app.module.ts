@@ -14,6 +14,8 @@ import { FormsModule } from "@angular/forms";
 import { ApiProviderService } from './api-provider.service';
 import { AsDetailsResultsComponent } from './as-details-results/as-details-results.component';
 import { ParamsService } from './params.service';
+import { AsPeersComponent } from './as-peers/as-peers.component';
+import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ParamsService } from './params.service';
     DashboardComponent,
     AsDetailsComponent,
     AsDetailsResultsComponent,
+    AsPeersComponent,
+    AsPeersResultsComponent,
   ],
   imports: [
     BrowserModule,

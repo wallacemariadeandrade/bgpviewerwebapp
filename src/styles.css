@@ -150,3 +150,11 @@ input.query-input {
 }
 
 /* ================================================================= */
+
+div.border-w-1 {
+    border: 1px solid white;
+}
+
+div.padd-10-l {
+    padding-left: 10px;
+}

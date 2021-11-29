@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import AsDetails from './model/as-details';
+import AsPeers from './model/asPeers';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,39 @@ export class AsService {
           "abuse@level3.com"
         ],
         lookingGlassUrl: "https://lookingglass.centurylink.com/"
+    });
+  }
+
+  getAsPeers(apiId?: Number, asNumber?: Number):Observable<AsPeers> {
+    return of({
+      ipv4: [
+        {
+          asn: 3356,
+          name: "Level3",
+          description: "Level3",
+          countryCode: "US"
+        },
+        {
+          asn: 3356,
+          name: "Level3",
+          description: "Level3",
+          countryCode: "US"
+        }
+      ],
+      ipv6: [
+        {
+          asn: 3356,
+          name: "Level3",
+          description: "Level3",
+          countryCode: "US"
+        },
+        {
+          asn: 3356,
+          name: "Level3",
+          description: "Level3",
+          countryCode: "US"
+        }
+      ]
     });
   }
 }
