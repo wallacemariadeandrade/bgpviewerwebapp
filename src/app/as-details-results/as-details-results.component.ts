@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiProviderService } from '../api-provider.service';
 import { AsService } from '../as.service';
 import { AsResultsComponent } from '../asResultsComponent';
 import AsDetails from '../model/asDetails';
-import SelectedApi from '../model/selectedApi';
 import { ParamsService } from '../params.service';
 
 @Component({
