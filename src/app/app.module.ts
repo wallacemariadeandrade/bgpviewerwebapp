@@ -20,6 +20,8 @@ import { AsUpstreamsComponent } from './as-upstreams/as-upstreams.component';
 import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams-results.component';
 import { AsDownstreamsComponent } from './as-downstreams/as-downstreams.component';
 import { AsDownstreamsResultsComponent } from './as-downstreams-results/as-downstreams-results.component';
+import { AsIxsComponent } from './as-ixs/as-ixs.component';
+import { AsIxsResultsComponent } from './as-ixs-results/as-ixs-results.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AsDownstreamsResultsComponent } from './as-downstreams-results/as-downs
     AsUpstreamsResultsComponent,
     AsDownstreamsComponent,
     AsDownstreamsResultsComponent,
+    AsIxsComponent,
+    AsIxsResultsComponent,
   ],
   imports: [
     BrowserModule,

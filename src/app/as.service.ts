@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import AsDetails from './model/asDetails';
+import AsIx from './model/asIx';
 import AsPeers from './model/asPeers';
 
 @Injectable({
@@ -126,5 +127,26 @@ export class AsService {
         }
       ]
     });
+  }
+
+  getAsIxs(apiId?: Number, asNumber?: Number): Observable<AsIx[]> {
+    return of([
+      {
+        name: "IX.br (PTT.br) São Paulo",
+        fullName: "IX.br (PTT.br) São Paulo",
+        countryCode: "BR",
+        iPv4: "187.16.222.222",
+        iPv6: "2001:12f8::222:222",
+        asnSpeed: 100000
+      },
+      {
+        name: "IX.br (PTT.br) São Paulo",
+        fullName: "IX.br (PTT.br) São Paulo",
+        countryCode: "BR",
+        iPv4: "187.16.212.67",
+        iPv6: "2001:12f8::212:67",
+        asnSpeed: 100000
+      }
+    ]);
   }
 }

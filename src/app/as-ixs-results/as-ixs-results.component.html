@@ -1,0 +1,5 @@
+<div *ngFor="let result of results">
+    <h3>From {{ result[0].api?.name }}</h3>
+    <app-as-ixs [ixs]="result[1]" [asNumber]="asNumber"></app-as-ixs>
+    <div class="line-1-s-w m-20"></div>
+</div>

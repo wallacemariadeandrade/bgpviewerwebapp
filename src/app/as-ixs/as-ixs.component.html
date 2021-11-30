@@ -1,0 +1,23 @@
+<div *ngIf="ixs">
+    <p *ngIf="asNumber">Autonomous System {{ asNumber }}</p>
+    <div *ngFor="let ix of ixs" class="border-w-1 padd-10-l">
+        <p>
+            Name: <small>{{ ix.name }}</small>
+        </p>
+        <p>
+            Full Name: <small>{{ ix.fullName }}</small>
+        </p>
+        <p>
+            Country Code: <small>{{ ix.countryCode }}</small>
+        </p>
+        <p>
+            IPv4: <small>{{ ix.iPv4 }}</small>
+        </p>
+        <p>
+            IPv6: <small>{{ ix.iPv6 }}</small>
+        </p>
+        <p>
+            Speed (Mbps): <small>{{ ix.asnSpeed }}</small>
+        </p>
+    </div>
+</div>

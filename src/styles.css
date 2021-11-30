@@ -158,3 +158,10 @@ div.border-w-1 {
 div.padd-10-l {
     padding-left: 10px;
 }
+
+div.line-1-s-w {
+    border: 1px solid white; 
+}
+    div.line-1-s-w.m-20 {
+        margin: 20px;
+    }   
