@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiProviderService } from '../api-provider.service';
 import { AsService } from '../as.service';
+import { AsResultsComponent } from '../asResultsComponent';
 import AsDetails from '../model/asDetails';
 import SelectedApi from '../model/selectedApi';
 import { ParamsService } from '../params.service';
@@ -10,29 +12,17 @@ import { ParamsService } from '../params.service';
   templateUrl: './as-details-results.component.html',
   styleUrls: ['./as-details-results.component.css']
 })
-export class AsDetailsResultsComponent implements OnInit {
-
-  asesDetails: [SelectedApi, AsDetails][];
+export class AsDetailsResultsComponent extends AsResultsComponent<AsDetails> {
 
   constructor(
-    private paramsService: ParamsService,
-    private apiProvider: ApiProviderService,
+    paramsService: ParamsService,
+    apiProvider: ApiProviderService,
     private asService: AsService
     ) { 
-      this.asesDetails = [];
+      super(paramsService, apiProvider);
     }
 
-  ngOnInit(): void {
-    this.execute();
-  }
-
-  execute(): void {
-    let asNumber = Number(this.paramsService.getQueryParam());
-    let apisToQuery = this.apiProvider.getSelectedApis();
-    apisToQuery.forEach(api => {
-      this.asService.getAsDetails(api.api?.id, Number(asNumber)).subscribe(
-        x => this.asesDetails?.push([api, x])
-      )
-    });
-  }
+    getData(apiId?: Number, asNumber?: Number): Observable<AsDetails> {
+      return this.asService.getAsDetails(apiId, asNumber);
+    }
 }
