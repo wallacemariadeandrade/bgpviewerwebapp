@@ -1,0 +1,4 @@
+<div *ngFor="let peers of results">
+    <h3>From {{ peers[0].api?.name }}</h3>
+    <app-as-upstreams [upstreams]="peers[1]" [asNumber]="asNumber"></app-as-upstreams>
+</div>

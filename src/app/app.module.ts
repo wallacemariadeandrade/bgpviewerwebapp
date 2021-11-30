@@ -16,6 +16,8 @@ import { AsDetailsResultsComponent } from './as-details-results/as-details-resul
 import { ParamsService } from './params.service';
 import { AsPeersComponent } from './as-peers/as-peers.component';
 import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.component';
+import { AsUpstreamsComponent } from './as-upstreams/as-upstreams.component';
+import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams-results.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.com
     AsDetailsResultsComponent,
     AsPeersComponent,
     AsPeersResultsComponent,
+    AsUpstreamsComponent,
+    AsUpstreamsResultsComponent,
   ],
   imports: [
     BrowserModule,
