@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { ApiProviderService } from '../api-provider.service';
 import { ApiService } from '../api.service';
 import SelectedApi from '../model/selectedApi';
@@ -45,7 +46,11 @@ export class ApiSelectionComponent implements OnInit {
         this.apiProviderService.setApis(this.availableApis);
         this.router.navigateByUrl(this.paramsService.getUrl());
     } catch (error) {
-        alert(error);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: String(error)
+        });
     }     
   }
 }

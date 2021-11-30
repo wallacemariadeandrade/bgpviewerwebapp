@@ -1,4 +1,5 @@
 import { Router } from "@angular/router";
+import Swal from "sweetalert2";
 
 export abstract class QueryComponent {
 
@@ -11,6 +12,10 @@ export abstract class QueryComponent {
         if(this.checkInput()) 
             this.router.navigateByUrl(url);
         else
-            alert(this.inputInvalid());
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: this.inputInvalid()
+            });
     }
 }
