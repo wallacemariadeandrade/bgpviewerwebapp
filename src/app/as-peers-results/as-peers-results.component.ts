@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ApiProviderService } from '../api-provider.service';
 import { AsService } from '../as.service';
+import { AsResultsComponent } from '../asResultsComponent';
 import AsPeers from '../model/asPeers';
-import SelectedApi from '../model/selectedApi';
 import { ParamsService } from '../params.service';
 
 @Component({
@@ -10,30 +11,16 @@ import { ParamsService } from '../params.service';
   templateUrl: './as-peers-results.component.html',
   styleUrls: ['./as-peers-results.component.css']
 })
-export class AsPeersResultsComponent implements OnInit {
-
-  peersResults: [SelectedApi, AsPeers][];
-  asNumber: Number;
+export class AsPeersResultsComponent extends AsResultsComponent<AsPeers> {
   
   constructor(
-    private paramsService: ParamsService,
-    private apiProvider: ApiProviderService,
-    private asService: AsService
-  ) {
-    this.peersResults = [];
-    this.asNumber = 0;
+    paramsService: ParamsService,
+    apiProvider: ApiProviderService,
+    private asService: AsService) {
+    super(paramsService, apiProvider);
   }
-
-  ngOnInit(): void {
-    this.execute();
-  }
-
-  execute(): void {
-    this.asNumber = Number(this.paramsService.getQueryParam());
-    let apisToQuery = this.apiProvider.getSelectedApis();
-    apisToQuery.forEach(api => {
-      this.asService.getAsPeers(api.api?.id, Number(this.asNumber)).subscribe(
-        x => this.peersResults?.push([api, x]))
-    });
-  }
+  
+  getData(apiId?: Number, asNumber?: Number): Observable<AsPeers> {
+    return this.asService.getAsPeers(apiId, asNumber);
+  }  
 }

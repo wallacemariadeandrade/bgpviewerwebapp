@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ParamsService } from '../params.service';
-import { QueryComponent } from '../query-component';
+import { QueryComponent } from '../queryComponent';
 
 @Component({
   selector: 'app-as-data-query',
