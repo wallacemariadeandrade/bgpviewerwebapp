@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { ApiProviderService } from "./api-provider.service";
+import { AsService } from "./as.service";
 import SelectedApi from "./model/selectedApi";
 import { ParamsService } from "./params.service";
 
@@ -14,7 +15,8 @@ export abstract class AsResultsComponent<T> implements OnInit {
 
     constructor(
         protected paramsService: ParamsService,
-        protected apiProvider: ApiProviderService) {
+        protected apiProvider: ApiProviderService,
+        protected asService: AsService) {
             this.results = [];
             this.asNumber = Number(this.paramsService.getQueryParam());
     }

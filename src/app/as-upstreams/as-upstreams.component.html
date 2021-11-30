@@ -1,5 +1,5 @@
 <div *ngIf="upstreams">
-    <p *ngIf="asNumber">AS{{ asNumber }} IPv4 Peers</p>
+    <p *ngIf="asNumber">AS{{ asNumber }} IPv4 Upstreams</p>
     <div *ngFor="let peer of upstreams.ipv4" class="border-w-1 padd-10-l">
         <p>
             AS Number: <small>{{ peer.asn }}</small>
@@ -15,7 +15,7 @@
         </p>
     </div>
 
-    <p *ngIf="asNumber">AS{{ asNumber }} IPv6 Peers</p>
+    <p *ngIf="asNumber">AS{{ asNumber }} IPv6 Upstreams</p>
     <div *ngFor="let peer of upstreams.ipv6" class="border-w-1 padd-10-l">
         <p>
             AS Number: <small>{{ peer.asn }}</small>
