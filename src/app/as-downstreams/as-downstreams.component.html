@@ -1,0 +1,33 @@
+<div *ngIf="downstreams">
+    <p *ngIf="asNumber">AS{{ asNumber }} IPv4 Downstreams</p>
+    <div *ngFor="let peer of downstreams.ipv4" class="border-w-1 padd-10-l">
+        <p>
+            AS Number: <small>{{ peer.asn }}</small>
+        </p>
+        <p>
+            Name: <small>{{ peer.name }}</small>
+        </p>
+        <p>
+            Description: <small>{{ peer.description }}</small>
+        </p>
+        <p>
+            Country Code: <small>{{ peer.countryCode }}</small>
+        </p>
+    </div>
+
+    <p *ngIf="asNumber">AS{{ asNumber }} IPv6 Downstreams</p>
+    <div *ngFor="let peer of downstreams.ipv6" class="border-w-1 padd-10-l">
+        <p>
+            AS Number: <small>{{ peer.asn }}</small>
+        </p>
+        <p>
+            Name: <small>{{ peer.name }}</small>
+        </p>
+        <p>
+            Description: <small>{{ peer.description }}</small>
+        </p>
+        <p>
+            Country Code: <small>{{ peer.countryCode }}</small>
+        </p>
+    </div>
+</div>

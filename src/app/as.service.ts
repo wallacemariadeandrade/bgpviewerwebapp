@@ -94,4 +94,37 @@ export class AsService {
       ]
     });
   }
+
+  getAsDownstreams(apiId?: Number, asNumber?: Number): Observable<AsPeers> {
+    return of({
+      ipv4: [
+        {
+          asn: 174,
+          name: "Cogent",
+          description: "Cogent",
+          countryCode: "US"
+        },
+        {
+          asn: 174,
+          name: "Cogent",
+          description: "Cogent",
+          countryCode: "US"
+        }
+      ],
+      ipv6: [
+        {
+          asn: 20940,
+          name: "Akamai Technologies",
+          description: "Akamai Technologies",
+          countryCode: "US"
+        },
+        {
+          asn: 20940,
+          name: "Akamai Technologies",
+          description: "Akamai Technologies",
+          countryCode: "US"
+        }
+      ]
+    });
+  }
 }

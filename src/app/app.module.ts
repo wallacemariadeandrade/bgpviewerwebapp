@@ -18,6 +18,8 @@ import { AsPeersComponent } from './as-peers/as-peers.component';
 import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.component';
 import { AsUpstreamsComponent } from './as-upstreams/as-upstreams.component';
 import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams-results.component';
+import { AsDownstreamsComponent } from './as-downstreams/as-downstreams.component';
+import { AsDownstreamsResultsComponent } from './as-downstreams-results/as-downstreams-results.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams
     AsPeersResultsComponent,
     AsUpstreamsComponent,
     AsUpstreamsResultsComponent,
+    AsDownstreamsComponent,
+    AsDownstreamsResultsComponent,
   ],
   imports: [
     BrowserModule,
