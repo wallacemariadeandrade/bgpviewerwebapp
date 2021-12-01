@@ -17,7 +17,7 @@ export abstract class QueryComponent {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: this.inputInvalid()
+                html: this.inputInvalid()
             });
     }
 
