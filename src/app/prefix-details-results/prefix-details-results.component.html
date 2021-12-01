@@ -1,0 +1,5 @@
+<div *ngFor="let result of results">
+    <h3>From {{ result[0].api?.name }}</h3>
+    <app-prefix-details [prefix]="result[1]"></app-prefix-details>
+    <div class="line-1-s-w m-20"></div>
+</div>

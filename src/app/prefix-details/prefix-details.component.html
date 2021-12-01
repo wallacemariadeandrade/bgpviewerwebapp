@@ -1,0 +1,26 @@
+<div *ngIf="prefix">
+    <p>Prefix {{ prefix.prefix }}</p>
+    <p>
+        Name: <br>
+        <small>{{ prefix.name }}</small>
+    </p>
+    <p>
+        Description: <br>
+        <small>{{ prefix.description }}</small>
+    </p>
+    <p>Parents:</p>
+    <div *ngFor="let parent of prefix.parentAsns" class="line-1-s-w padd-10-l">
+        <p>
+            AS: <small>{{ parent.asn }}</small>
+        </p>
+        <p>
+            Name: <small>{{ parent.name }}</small>
+        </p>
+        <p>
+            Description: <small>{{ parent.description }}</small>
+        </p>
+        <p>
+            Country Code: <small>{{ parent.countryCode }}</small>
+        </p>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.com
 import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-results.component';
 import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams-results.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-details-results.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'as-downstreams', component: AsDownstreamsResultsComponent },
   { path: 'as-ixs', component: AsIxsResultsComponent },
   { path: 'as-prefixes', component: AsPrefixesResultsComponent },
+  { path: 'prefix-details', component: PrefixDetailsResultsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

@@ -24,6 +24,8 @@ import { AsIxsComponent } from './as-ixs/as-ixs.component';
 import { AsIxsResultsComponent } from './as-ixs-results/as-ixs-results.component';
 import { AsPrefixesComponent } from './as-prefixes/as-prefixes.component';
 import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-results.component';
+import { PrefixDetailsComponent } from './prefix-details/prefix-details.component';
+import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-details-results.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-re
     AsIxsResultsComponent,
     AsPrefixesComponent,
     AsPrefixesResultsComponent,
+    PrefixDetailsComponent,
+    PrefixDetailsResultsComponent,
   ],
   imports: [
     BrowserModule,
