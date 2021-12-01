@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'apiSelection', component: ApiSelectionComponent },
+  { path: 'api-selection', component: ApiSelectionComponent },
   { path: 'as-details', component: AsDetailsResultsComponent },
   { path: 'as-peers', component: AsPeersResultsComponent },
   { path: 'as-upstreams', component: AsUpstreamsResultsComponent },

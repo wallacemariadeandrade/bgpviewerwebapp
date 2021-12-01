@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { ParamsService } from '../params.service';
 import { QueryComponent } from '../queryComponent';
 
 @Component({
@@ -9,13 +7,8 @@ import { QueryComponent } from '../queryComponent';
   styleUrls: ['./as-data-query.component.css']
 })
 export class AsDataQueryComponent extends QueryComponent implements OnInit {
-
+  
   @Input() asNumber!: Number;
-
-  constructor(
-    private paramsService: ParamsService, protected r:Router) {
-      super(r);
-    }
 
   ngOnInit(): void { }
 
@@ -23,18 +16,16 @@ export class AsDataQueryComponent extends QueryComponent implements OnInit {
     return this.asNumber != null && this.asNumber != undefined && !isNaN(Number(this.asNumber));
   }
 
-  inputInvalid():string {
-    return "Enter a valid as number please!";
+  getParameter(): string {
+    return this.asNumber?.toString();
   }
 
-  goTo(url:string){ 
-    this.paramsService.setUrl(url);
-    this.paramsService.setQueryParam(this.asNumber.toString());
-    this.navigateTo('/apiSelection');
+  inputInvalid():string {
+    return "Enter a valid AS number please!";
   }
 
   details():void {
-    this.goTo(`/as-details`);
+    this.goTo('as-details');
   }
 
   peers():void {
