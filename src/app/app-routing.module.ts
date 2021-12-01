@@ -5,6 +5,7 @@ import { AsDetailsResultsComponent } from './as-details-results/as-details-resul
 import { AsDownstreamsResultsComponent } from './as-downstreams-results/as-downstreams-results.component';
 import { AsIxsResultsComponent } from './as-ixs-results/as-ixs-results.component';
 import { AsPeersResultsComponent } from './as-peers-results/as-peers-results.component';
+import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-results.component';
 import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams-results.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'as-upstreams', component: AsUpstreamsResultsComponent },
   { path: 'as-downstreams', component: AsDownstreamsResultsComponent },
   { path: 'as-ixs', component: AsIxsResultsComponent },
+  { path: 'as-prefixes', component: AsPrefixesResultsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

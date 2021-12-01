@@ -1,0 +1,9 @@
+<div *ngIf="prefixes">
+    <p *ngIf="asNumber">AS{{ asNumber }} Prefixes</p>
+    <div *ngFor="let v4 of prefixes.iPv4" class="padd-10-l">
+        <small>{{ v4 }}</small><br/>
+    </div>
+    <div *ngFor="let v6 of prefixes.iPv6" class="padd-10-l">
+        <small>{{ v6 }}</small><br/>
+    </div>
+</div>

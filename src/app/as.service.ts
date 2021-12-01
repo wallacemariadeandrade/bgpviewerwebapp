@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import AsDetails from './model/asDetails';
 import AsIx from './model/asIx';
 import AsPeers from './model/asPeers';
+import AsPrefixes from './model/asPrefixes';
 
 @Injectable({
   providedIn: 'root'
@@ -148,5 +149,20 @@ export class AsService {
         asnSpeed: 100000
       }
     ]);
+  }
+
+  getAsPrefixes(apiId?: Number, asNumber?: Number): Observable<AsPrefixes> {
+    return of({
+      asn: 15169,
+      iPv4: [
+        "8.8.8.0/24",
+        "8.8.4.0/24",
+      ],
+      iPv6: [
+        "2001:4860::/32",
+        "2001:4860:4864::/48",
+        "2404:6800::/32"
+      ]
+    });
   }
 }

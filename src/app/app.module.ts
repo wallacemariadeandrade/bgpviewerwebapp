@@ -22,6 +22,8 @@ import { AsDownstreamsComponent } from './as-downstreams/as-downstreams.componen
 import { AsDownstreamsResultsComponent } from './as-downstreams-results/as-downstreams-results.component';
 import { AsIxsComponent } from './as-ixs/as-ixs.component';
 import { AsIxsResultsComponent } from './as-ixs-results/as-ixs-results.component';
+import { AsPrefixesComponent } from './as-prefixes/as-prefixes.component';
+import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-results.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { AsIxsResultsComponent } from './as-ixs-results/as-ixs-results.component
     AsDownstreamsResultsComponent,
     AsIxsComponent,
     AsIxsResultsComponent,
+    AsPrefixesComponent,
+    AsPrefixesResultsComponent,
   ],
   imports: [
     BrowserModule,
