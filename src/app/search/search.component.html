@@ -2,9 +2,11 @@
     <button class="main-query">Search&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
     <div class="dropdown-content">
         <label for="search">Search For &nbsp;</label>
-        <input id="search" class="query-input" type="text"/>
+        <input id="search" class="query-input" [(ngModel)]="term" type="text"/>
         <ul class="sub-query">
-            <li><a href="#" class="sub-query">Go!</a></li>
+            <li><button type="button" 
+                (click)="go()"
+                class="btn-sub-query">Go!</button></li>
         </ul>
     </div>
 </div>
