@@ -1,0 +1,37 @@
+<div *ngIf="search">
+    <p *ngIf="term">Search results for "{{ term }}"</p>
+    <p>Related Asns:</p>
+    <div *ngFor="let asn of search.relatedAsns" class="padd-10-l">
+        <app-as-details [details]="asn"></app-as-details>
+    </div>
+    <p>IPv4 Prefixes:</p>
+    <div *ngFor="let v4 of search.iPv4" class="line-1-s-w padd-10-l">
+        <p>
+            Prefix: 
+            <small>{{ v4.prefix }}</small>
+        </p>
+        <p>
+            Name: 
+            <small>{{ v4.name }}</small>
+        </p>
+        <p>
+            Description: 
+            <small>{{ v4.description }}</small>
+        </p>
+    </div>
+    <p>IPv6 Prefixes:</p>
+    <div *ngFor="let v6 of search.iPv6" class="line-1-s-w padd-10-l">
+        <p>
+            Prefix: 
+            <small>{{ v6.prefix }}</small>
+        </p>
+        <p>
+            Name: 
+            <small>{{ v6.name }}</small>
+        </p>
+        <p>
+            Description: 
+            <small>{{ v6.description }}</small>
+        </p>
+    </div>
+</div>

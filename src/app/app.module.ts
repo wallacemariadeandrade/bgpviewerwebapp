@@ -28,6 +28,8 @@ import { PrefixDetailsComponent } from './prefix-details/prefix-details.componen
 import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-details-results.component';
 import { IpDetailsComponent } from './ip-details/ip-details.component';
 import { IpDetailsResultsComponent } from './ip-details-results/ip-details-results.component';
+import { SearchForComponent } from './search-for/search-for.component';
+import { SearchForResultsComponent } from './search-for-results/search-for-results.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { IpDetailsResultsComponent } from './ip-details-results/ip-details-resul
     PrefixDetailsResultsComponent,
     IpDetailsComponent,
     IpDetailsResultsComponent,
+    SearchForComponent,
+    SearchForResultsComponent,
   ],
   imports: [
     BrowserModule,

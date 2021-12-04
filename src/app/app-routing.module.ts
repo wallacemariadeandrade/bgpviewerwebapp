@@ -10,6 +10,7 @@ import { AsUpstreamsResultsComponent } from './as-upstreams-results/as-upstreams
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IpDetailsResultsComponent } from './ip-details-results/ip-details-results.component';
 import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-details-results.component';
+import { SearchForResultsComponent } from './search-for-results/search-for-results.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'as-prefixes', component: AsPrefixesResultsComponent },
   { path: 'prefix-details', component: PrefixDetailsResultsComponent },
   { path: 'ip-details', component: IpDetailsResultsComponent },
+  { path: 'search-results', component: SearchForResultsComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
