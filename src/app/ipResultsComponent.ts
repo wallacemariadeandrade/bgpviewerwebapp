@@ -34,5 +34,5 @@ export abstract class IpResultsComponent<T> implements OnInit {
         });
     }
 
-    abstract getData(apiId?: Number, prefix?: string):Observable<T>;
+    abstract getData(apiId?: Number, ip?: string):Observable<T>;
 }

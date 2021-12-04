@@ -9,25 +9,51 @@ export class IpService {
 
   constructor() { }
 
-  getIpDetails():Observable<IpDetails> {
+  getIpDetails(apiId?: Number, ip?: string):Observable<IpDetails> {
     return of({
-      ipAddress: "1.1.1.1",
-      rirAllocationPrefix: "1.1.1.0/24",
-      countryCode: "AU",
-      ptrRecord: "one.one.one.one",
+      ipAddress: "8.8.8.8",
+      rirAllocationPrefix: "8.0.0.0/9",
+      countryCode: "US",
+      ptrRecord: "dns.google",
       relatedPrefixes: [
         {
           parentAsns: [
             {
-              asn: 13335,
-              name: "CLOUDFLARENET",
-              description: "CLOUDFLARENET",
+              asn: 15169,
+              name: "GOOGLE",
+              description: "GOOGLE",
               countryCode: "US"
             }
           ],
-          prefix: "1.1.1.0/24",
-          name: "APNIC-LABS",
-          description: "APNIC and Cloudflare DNS Resolver project"
+          prefix: "8.8.8.0/24",
+          name: "LVLT-GOGL-8-8-8",
+          description: "Google LLC"
+        },
+        {
+          parentAsns: [
+            {
+              asn: 3356,
+              name: "LEVEL3",
+              description: "LEVEL3",
+              countryCode: "US"
+            }
+          ],
+          prefix: "8.0.0.0/12",
+          name: "LVLT-ORG-8-8",
+          description: "Level 3 Parent, LLC"
+        },
+        {
+          parentAsns: [
+            {
+              asn: 3356,
+              name: "LEVEL3",
+              description: "LEVEL3",
+              countryCode: "US"
+            }
+          ],
+          prefix: "8.0.0.0/9",
+          name: "LVLT-ORG-8-8",
+          description: "Level 3 Parent, LLC"
         }
       ]
     });

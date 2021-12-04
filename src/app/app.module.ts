@@ -26,6 +26,8 @@ import { AsPrefixesComponent } from './as-prefixes/as-prefixes.component';
 import { AsPrefixesResultsComponent } from './as-prefixes-results/as-prefixes-results.component';
 import { PrefixDetailsComponent } from './prefix-details/prefix-details.component';
 import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-details-results.component';
+import { IpDetailsComponent } from './ip-details/ip-details.component';
+import { IpDetailsResultsComponent } from './ip-details-results/ip-details-results.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { PrefixDetailsResultsComponent } from './prefix-details-results/prefix-d
     AsPrefixesResultsComponent,
     PrefixDetailsComponent,
     PrefixDetailsResultsComponent,
+    IpDetailsComponent,
+    IpDetailsResultsComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,11 @@
     <button class="main-query">IP Data&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
     <div class="dropdown-content">
         <label for="ip">Which Address?&nbsp;</label>
-        <input id="ip" class="query-input" type="text"/>
+        <input id="ip" class="query-input" [(ngModel)]="ip" type="text"/>
         <ul class="sub-query">
-            <li><a href="#" class="sub-query">Details</a></li>
+            <li><button type="button"
+                (click)="details()"
+                class="btn-sub-query">Details</button></li>
         </ul>
     </div>
 </div>

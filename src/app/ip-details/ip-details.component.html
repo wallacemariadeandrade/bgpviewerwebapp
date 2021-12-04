@@ -1,0 +1,19 @@
+<div *ngIf="ip">
+    <p>IP Address {{ ip.ipAddress }}</p>
+    <p>
+        Rir Allocation Prefix: <br>
+        <small>{{ ip.rirAllocationPrefix }}</small>
+    </p>
+    <p>
+        Country Code: <br>
+        <small>{{ ip.countryCode }}</small>
+    </p>
+    <p>
+        PTR Record: <br>
+        <small>{{ ip.ptrRecord }}</small>
+    </p>
+    <p>Related Prefixes:</p>
+    <div class="padd-10-l" *ngFor="let prefix of ip.relatedPrefixes">
+        <app-prefix-details [prefix]="prefix"></app-prefix-details>
+    </div>
+</div>
