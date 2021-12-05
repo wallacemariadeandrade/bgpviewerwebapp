@@ -1,39 +1,29 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { Observable } from "rxjs";
 import { ApiProviderService } from "./api-provider.service";
 import { AsService } from "./as.service";
 import SelectedApi from "./model/selectedApi";
 import { ParamsService } from "./params.service";
+import { ResultsComponent } from "./resultsComponent";
 
 @Component ({
     template: ''
 })
-export abstract class AsResultsComponent<T> implements OnInit {
+export abstract class AsResultsComponent<T> extends ResultsComponent<T> {
 
-    results: [SelectedApi, T][];
     asNumber?: Number;
-    isLoading: boolean;
-    isLoadingCounter: number;
 
     constructor(
-        protected paramsService: ParamsService,
-        protected apiProvider: ApiProviderService,
+        paramsService: ParamsService,
+        apiProvider: ApiProviderService,
         protected asService: AsService) {
-            this.results = [];
+            super(paramsService, apiProvider)
             this.asNumber = Number(this.paramsService.getQueryParam());
-            this.isLoading = true;
-            this.isLoadingCounter = this.results.length;
-    }
-    
-    ngOnInit(): void {
-        this.execute();
     }
 
-    execute():void {
+    doWork(selectedApis: SelectedApi[]):void {
         this.asNumber = Number(this.paramsService.getQueryParam());
-        let apisToQuery = this.apiProvider.getSelectedApis();
-        this.isLoadingCounter = apisToQuery.length;
-        apisToQuery.forEach(selected => {
+        selectedApis.forEach(selected => {
             this.getData(selected.api?.id, Number(this.asNumber)).subscribe(x => {
                 this.unsetLoading();
                 this.results?.push([selected, x]);
@@ -42,11 +32,4 @@ export abstract class AsResultsComponent<T> implements OnInit {
     }
 
     abstract getData(apiId?: Number, asNumber?: Number):Observable<T>;
-
-    unsetLoading():void {
-        this.isLoadingCounter--;
-        if(this.isLoadingCounter == 0) {
-            this.isLoading = false;
-        } 
-    }
 }
