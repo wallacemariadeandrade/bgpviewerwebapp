@@ -14,146 +14,31 @@ export class AsService {
 
   constructor(private http: HttpClient) { }
 
-  private getAsDetailsEndpoint(apiId?: Number, asNumber?: Number):string {
-    return `${environment.baseUrl}/${apiId}/as/${asNumber}/details`;
+  private getEndpoint(apiId?: Number, asNumber?: Number, endpoint?:string):string {
+    return `${environment.baseUrl}/${apiId}/as/${asNumber}/${endpoint}`;
   }
 
   getAsDetails(apiId?: Number, asNumber?: Number):Observable<AsDetails> {
-    return this.http.get<AsDetails>(this.getAsDetailsEndpoint(apiId, asNumber));
+    return this.http.get<AsDetails>(this.getEndpoint(apiId, asNumber, 'details'));
   }
 
   getAsPeers(apiId?: Number, asNumber?: Number):Observable<AsPeers> {
-    return of({
-      ipv4: [
-        {
-          asn: 3356,
-          name: "Level3",
-          description: "Level3",
-          countryCode: "US"
-        },
-        {
-          asn: 3356,
-          name: "Level3",
-          description: "Level3",
-          countryCode: "US"
-        }
-      ],
-      ipv6: [
-        {
-          asn: 3356,
-          name: "Level3",
-          description: "Level3",
-          countryCode: "US"
-        },
-        {
-          asn: 3356,
-          name: "Level3",
-          description: "Level3",
-          countryCode: "US"
-        }
-      ]
-    });  
+    return this.http.get<AsPeers>(this.getEndpoint(apiId, asNumber, 'peers'));
   }
 
   getAsUpstreams(apiId?: Number, asNumber?: Number): Observable<AsPeers> {
-    return of({
-      ipv4: [
-        {
-          asn: 174,
-          name: "Cogent",
-          description: "Cogent",
-          countryCode: "US"
-        },
-        {
-          asn: 174,
-          name: "Cogent",
-          description: "Cogent",
-          countryCode: "US"
-        }
-      ],
-      ipv6: [
-        {
-          asn: 20940,
-          name: "Akamai Technologies",
-          description: "Akamai Technologies",
-          countryCode: "US"
-        },
-        {
-          asn: 20940,
-          name: "Akamai Technologies",
-          description: "Akamai Technologies",
-          countryCode: "US"
-        }
-      ]
-    });
+    return this.http.get<AsPeers>(this.getEndpoint(apiId, asNumber, 'upstreams'));
   }
 
   getAsDownstreams(apiId?: Number, asNumber?: Number): Observable<AsPeers> {
-    return of({
-      ipv4: [
-        {
-          asn: 174,
-          name: "Cogent",
-          description: "Cogent",
-          countryCode: "US"
-        },
-        {
-          asn: 174,
-          name: "Cogent",
-          description: "Cogent",
-          countryCode: "US"
-        }
-      ],
-      ipv6: [
-        {
-          asn: 20940,
-          name: "Akamai Technologies",
-          description: "Akamai Technologies",
-          countryCode: "US"
-        },
-        {
-          asn: 20940,
-          name: "Akamai Technologies",
-          description: "Akamai Technologies",
-          countryCode: "US"
-        }
-      ]
-    });
+    return this.http.get<AsPeers>(this.getEndpoint(apiId, asNumber, 'downstreams'));
   }
 
   getAsIxs(apiId?: Number, asNumber?: Number): Observable<AsIx[]> {
-    return of([
-      {
-        name: "IX.br (PTT.br) São Paulo",
-        fullName: "IX.br (PTT.br) São Paulo",
-        countryCode: "BR",
-        iPv4: "187.16.222.222",
-        iPv6: "2001:12f8::222:222",
-        asnSpeed: 100000
-      },
-      {
-        name: "IX.br (PTT.br) São Paulo",
-        fullName: "IX.br (PTT.br) São Paulo",
-        countryCode: "BR",
-        iPv4: "187.16.212.67",
-        iPv6: "2001:12f8::212:67",
-        asnSpeed: 100000
-      }
-    ]);
+    return this.http.get<AsIx[]>(this.getEndpoint(apiId, asNumber, 'ixs'));
   }
 
   getAsPrefixes(apiId?: Number, asNumber?: Number): Observable<AsPrefixes> {
-    return of({
-      asn: 15169,
-      iPv4: [
-        "8.8.8.0/24",
-        "8.8.4.0/24",
-      ],
-      iPv6: [
-        "2001:4860::/32",
-        "2001:4860:4864::/48",
-        "2404:6800::/32"
-      ]
-    });
+    return this.http.get<AsPrefixes>(this.getEndpoint(apiId, asNumber, 'prefixes'));
   }
 }

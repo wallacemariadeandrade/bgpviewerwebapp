@@ -1,6 +1,6 @@
 import As from "./as";
 
 export default class AsPeers {
-    ipv4?:As[]
-    ipv6?:As[]
+    iPv4?:As[]
+    iPv6?:As[]
 }

@@ -1,3 +1,4 @@
+<ngx-loading [show]="isLoading"></ngx-loading>
 <div *ngFor="let peers of results">
     <h3>From {{ peers[0].api?.name }}</h3>
     <app-as-downstreams [downstreams]="peers[1]" [asNumber]="asNumber"></app-as-downstreams>
