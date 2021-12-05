@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { AsDataQueryComponent } from './as-data-query/as-data-query.component';
@@ -63,6 +64,7 @@ import { SearchForResultsComponent } from './search-for-results/search-for-resul
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   // Register as a shared service! Singleton instance!
   providers: [ApiProviderService, ParamsService],

@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import AsDetails from './model/asDetails';
 import AsIx from './model/asIx';
 import AsPeers from './model/asPeers';
@@ -10,25 +12,14 @@ import AsPrefixes from './model/asPrefixes';
 })
 export class AsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private getAsDetailsEndpoint(apiId?: Number, asNumber?: Number):string {
+    return `${environment.baseUrl}/${apiId}/as/${asNumber}/details`;
+  }
 
   getAsDetails(apiId?: Number, asNumber?: Number):Observable<AsDetails> {
-    return of({
-        asn: 3356,
-        name: "LEVEL3",
-        description: "Level 3 Parent, LLC",
-        countryCode: "US",
-        emailContacts: [
-          "abuse@aup.lumen.com",
-          "ipaddressing@level3.com",
-          "abuse@level3.com"
-        ],
-        abuseContacts: [
-          "abuse@aup.lumen.com",
-          "abuse@level3.com"
-        ],
-        lookingGlassUrl: "https://lookingglass.centurylink.com/"
-    });
+    return this.http.get<AsDetails>(this.getAsDetailsEndpoint(apiId, asNumber));
   }
 
   getAsPeers(apiId?: Number, asNumber?: Number):Observable<AsPeers> {
