@@ -31,6 +31,7 @@ import { IpDetailsComponent } from './ip-details/ip-details.component';
 import { IpDetailsResultsComponent } from './ip-details-results/ip-details-results.component';
 import { SearchForComponent } from './search-for/search-for.component';
 import { SearchForResultsComponent } from './search-for-results/search-for-results.component';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { SearchForResultsComponent } from './search-for-results/search-for-resul
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({})
   ],
   // Register as a shared service! Singleton instance!
   providers: [ApiProviderService, ParamsService],

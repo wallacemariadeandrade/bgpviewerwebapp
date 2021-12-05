@@ -12,6 +12,8 @@ export abstract class AsResultsComponent<T> implements OnInit {
 
     results: [SelectedApi, T][];
     asNumber?: Number;
+    isLoading: boolean;
+    isLoadingCounter: number;
 
     constructor(
         protected paramsService: ParamsService,
@@ -19,6 +21,8 @@ export abstract class AsResultsComponent<T> implements OnInit {
         protected asService: AsService) {
             this.results = [];
             this.asNumber = Number(this.paramsService.getQueryParam());
+            this.isLoading = true;
+            this.isLoadingCounter = this.results.length;
     }
     
     ngOnInit(): void {
@@ -28,11 +32,21 @@ export abstract class AsResultsComponent<T> implements OnInit {
     execute():void {
         this.asNumber = Number(this.paramsService.getQueryParam());
         let apisToQuery = this.apiProvider.getSelectedApis();
+        this.isLoadingCounter = apisToQuery.length;
         apisToQuery.forEach(selected => {
-            this.getData(selected.api?.id, Number(this.asNumber)).subscribe(
-                x => this.results?.push([selected, x]))
+            this.getData(selected.api?.id, Number(this.asNumber)).subscribe(x => {
+                this.unsetLoading();
+                this.results?.push([selected, x]);
+            })
         });
     }
 
     abstract getData(apiId?: Number, asNumber?: Number):Observable<T>;
+
+    unsetLoading():void {
+        this.isLoadingCounter--;
+        if(this.isLoadingCounter == 0) {
+            this.isLoading = false;
+        } 
+    }
 }
