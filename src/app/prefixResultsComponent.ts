@@ -24,8 +24,10 @@ export abstract class PrefixResultsComponent<T> extends ResultsComponent<T> {
     doWork(apisToQuery:SelectedApi[]):void {
         this.prefix = this.paramsService.getQueryParam();
         apisToQuery.forEach(selected => {
-            this.getData(selected.api?.id, this.prefix).subscribe(
-                x => this.results?.push([selected, x]))
+            this.getData(selected.api?.id, this.prefix).subscribe(x => {
+                this.unsetLoading();
+                this.results?.push([selected, x])
+            })
         });
     }
 

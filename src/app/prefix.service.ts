@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import PrefixDetails from './model/prefixDetails';
 
 @Injectable({
@@ -7,21 +9,9 @@ import PrefixDetails from './model/prefixDetails';
 })
 export class PrefixService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   getPrefixDetails(apiId?: Number, prefix?: string):Observable<PrefixDetails> {
-    return of({
-      parentAsns: [
-        {
-          asn: 13335,
-          name: "CLOUDFLARENET",
-          description: "Cloudflare, Inc.",
-          countryCode: "US"
-        }
-      ],
-      prefix: "1.1.1.0/24",
-      name: "APNIC-LABS",
-      description: "APNIC and Cloudflare DNS Resolver project"
-    })
+    return this.http.get<PrefixDetails>(`${environment.baseUrl}/${apiId}/prefix/${prefix}/details`);
   }
 }
