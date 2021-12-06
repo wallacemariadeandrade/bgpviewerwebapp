@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/bgpviewerapp",
+    "public": "dist/bgpviewerwebapp",
     "ignore": [
       "firebase.json",
       "**/.*",
