@@ -15,6 +15,7 @@ export class ApiSelectionComponent implements OnInit {
 
   availableApis: SelectedApi[];
   checkAll: boolean;
+  isLoading: boolean;
 
   constructor(
     private apiService:ApiService, 
@@ -23,17 +24,19 @@ export class ApiSelectionComponent implements OnInit {
     private router: Router) {
       this.availableApis = [];
       this.checkAll = false;
+      this.isLoading = false;
    }
 
   ngOnInit(): void {
-    this.apiService.getAvailableApis().subscribe(x => x.forEach(
-      y => this.availableApis?.push(
-        {
+    this.isLoading = true;
+    this.apiService.getAvailableApis().subscribe(x => {
+      this.isLoading = false;
+      x.forEach(y => this.availableApis?.push({
           selected: false,
           api: y
-        }
-      )
-    ));
+        })
+      )}
+    );
   }
 
   checkAllApis(): void {
