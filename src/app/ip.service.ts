@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import IpDetails from './model/ipDetails';
 
 @Injectable({
@@ -7,55 +9,9 @@ import IpDetails from './model/ipDetails';
 })
 export class IpService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   getIpDetails(apiId?: Number, ip?: string):Observable<IpDetails> {
-    return of({
-      ipAddress: "8.8.8.8",
-      rirAllocationPrefix: "8.0.0.0/9",
-      countryCode: "US",
-      ptrRecord: "dns.google",
-      relatedPrefixes: [
-        {
-          parentAsns: [
-            {
-              asn: 15169,
-              name: "GOOGLE",
-              description: "GOOGLE",
-              countryCode: "US"
-            }
-          ],
-          prefix: "8.8.8.0/24",
-          name: "LVLT-GOGL-8-8-8",
-          description: "Google LLC"
-        },
-        {
-          parentAsns: [
-            {
-              asn: 3356,
-              name: "LEVEL3",
-              description: "LEVEL3",
-              countryCode: "US"
-            }
-          ],
-          prefix: "8.0.0.0/12",
-          name: "LVLT-ORG-8-8",
-          description: "Level 3 Parent, LLC"
-        },
-        {
-          parentAsns: [
-            {
-              asn: 3356,
-              name: "LEVEL3",
-              description: "LEVEL3",
-              countryCode: "US"
-            }
-          ],
-          prefix: "8.0.0.0/9",
-          name: "LVLT-ORG-8-8",
-          description: "Level 3 Parent, LLC"
-        }
-      ]
-    });
+    return this.http.get<IpDetails>(`${environment.baseUrl}/${apiId}/address/${ip}/details`);
   }
 }
