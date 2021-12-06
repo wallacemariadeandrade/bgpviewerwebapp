@@ -1,3 +1,4 @@
+<ngx-loading [show]="isLoading"></ngx-loading>
 <div *ngFor="let result of results">
     <h3>From {{ result[0].api?.name }}</h3>
     <app-search-for [search]="result[1]" [term]="term"></app-search-for>

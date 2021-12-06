@@ -3,6 +3,7 @@ import { ApiProviderService } from '../api-provider.service';
 import Search from '../model/search';
 import SelectedApi from '../model/selectedApi';
 import { ParamsService } from '../params.service';
+import { ResultsComponent } from '../resultsComponent';
 import { SearchService } from '../search.service';
 
 @Component({
@@ -10,29 +11,25 @@ import { SearchService } from '../search.service';
   templateUrl: './search-for-results.component.html',
   styleUrls: ['./search-for-results.component.css']
 })
-export class SearchForResultsComponent implements OnInit {
+export class SearchForResultsComponent extends ResultsComponent<Search> {
 
-  results: [SelectedApi, Search][];
   term: string;
 
   constructor(
-    protected paramsService: ParamsService,
-    protected apiProvider: ApiProviderService,
+    paramsService: ParamsService,
+    apiProvider: ApiProviderService,
     protected searchService: SearchService) {
-        this.results = [];
+        super(paramsService, apiProvider);
         this.term = this.paramsService.getQueryParam();
   }
 
-  ngOnInit(): void {
-    this.execute();
-  }
-
-  execute():void {
+  doWork(apisToQuery: SelectedApi[]):void {
     this.term = this.paramsService.getQueryParam();
-    let apisToQuery = this.apiProvider.getSelectedApis();
     apisToQuery.forEach(selected => {
-        this.searchService.go(selected.api?.id, this.term).subscribe(
-            x => this.results?.push([selected, x]))
+        this.searchService.go(selected.api?.id, this.term).subscribe(x => {
+          this.unsetLoading();
+          this.results?.push([selected, x]);
+        })
     });
   }
 }
