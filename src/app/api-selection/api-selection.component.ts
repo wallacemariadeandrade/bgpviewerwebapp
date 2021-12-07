@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 import Swal from 'sweetalert2';
 import { ApiProviderService } from '../api-provider.service';
 import { ApiService } from '../api.service';
@@ -29,7 +30,16 @@ export class ApiSelectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.apiService.getAvailableApis().subscribe(x => {
+    this.apiService.getAvailableApis().pipe(
+      catchError(() => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: "An error has ocurred while fetching data!"
+        });
+        return of([]);
+      })
+    ).subscribe(x => {
       this.isLoading = false;
       x.forEach(y => this.availableApis?.push({
           selected: false,

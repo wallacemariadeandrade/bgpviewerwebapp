@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { Observable } from "rxjs";
+import { catchError, Observable, timeout } from "rxjs";
 import { ApiProviderService } from "./api-provider.service";
 import { IpService } from "./ip.service";
 import SelectedApi from "./model/selectedApi";
@@ -24,7 +24,12 @@ export abstract class IpResultsComponent<T> extends ResultsComponent<T> {
     doWork(apisToQuery: SelectedApi[]):void {
         this.ip = this.paramsService.getQueryParam();
         apisToQuery.forEach(selected => {
-            this.getData(selected.api?.id, this.ip).subscribe(x => {
+            this.getData(selected.api?.id, this.ip).pipe(
+                timeout({ each: this.RESULTS_TIMEOUT_MILLISECONDS })
+            )
+            .pipe(
+                catchError(e => this.handle(e))
+            ).subscribe(x => {
                 this.unsetLoading();
                 this.results?.push([selected, x])
             })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError, timeout } from 'rxjs';
 import { ApiProviderService } from '../api-provider.service';
 import Search from '../model/search';
 import SelectedApi from '../model/selectedApi';
@@ -26,7 +27,12 @@ export class SearchForResultsComponent extends ResultsComponent<Search> {
   doWork(apisToQuery: SelectedApi[]):void {
     this.term = this.paramsService.getQueryParam();
     apisToQuery.forEach(selected => {
-        this.searchService.go(selected.api?.id, this.term).subscribe(x => {
+        this.searchService.go(selected.api?.id, this.term).pipe(
+          timeout({ each: this.RESULTS_TIMEOUT_MILLISECONDS })
+      )
+      .pipe(
+          catchError(e => this.handle(e))
+      ).subscribe(x => {
           this.unsetLoading();
           this.results?.push([selected, x]);
         })

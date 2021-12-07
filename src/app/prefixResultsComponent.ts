@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
+import { Component } from "@angular/core";
+import { catchError, Observable, timeout } from "rxjs";
 import { ApiProviderService } from "./api-provider.service";
 import SelectedApi from "./model/selectedApi";
 import { ParamsService } from "./params.service";
@@ -24,7 +24,12 @@ export abstract class PrefixResultsComponent<T> extends ResultsComponent<T> {
     doWork(apisToQuery:SelectedApi[]):void {
         this.prefix = this.paramsService.getQueryParam();
         apisToQuery.forEach(selected => {
-            this.getData(selected.api?.id, this.prefix).subscribe(x => {
+            this.getData(selected.api?.id, this.prefix).pipe(
+                timeout({ each: this.RESULTS_TIMEOUT_MILLISECONDS })
+            )
+            .pipe(
+                catchError(e => this.handle(e))
+            ).subscribe(x => {
                 this.unsetLoading();
                 this.results?.push([selected, x])
             })
